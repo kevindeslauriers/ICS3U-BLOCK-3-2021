@@ -25,5 +25,17 @@ public class ExampleSix {
     System.out.println(13 % 3); // 13/3 what is the remainder
     y = y % 2; // equvilent to y %= 2;
 
+    int a = 5;
+    a++;
+    ++a;
+    a--;
+    --a;
+
+    int b = 3;
+    int e = 3;
+
+    int c = 2 * b++;
+    int d = 2 * ++e;
+
   }
 }
