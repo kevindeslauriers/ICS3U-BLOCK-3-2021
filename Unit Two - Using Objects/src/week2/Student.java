@@ -15,6 +15,9 @@ public class Student {
   private String name;
   private String studentNumber;
   private int grade;
+  private int totalMarks;
+  private int numMarks;
+  private double average;
 
   /**
    * 
@@ -28,6 +31,9 @@ public class Student {
     this.name = name;
     this.studentNumber = studentNumber;
     this.grade = grade;
+    this.totalMarks = 0;
+    this.numMarks = 0;
+    this.average = 0;
   }
 
   /**
@@ -39,19 +45,38 @@ public class Student {
   }
 
   /**
-   * A void method performs a task and returns NOTHING non-static means that each
-   * OBject gets its own version (ex. name, studentNumber, grade, )
+   * A void method performs a task but does not return a value
    */
   public void displayStudentNumber() {
     System.out.println(studentNumber);
   }
 
+  /**
+   * non-static methods do not have the word (modifier static before the return
+   * type (void)) non-static methods/attributes mean the method/attribute belongs
+   * to the OBJECT not te class ever instance gets its own version
+   */
   public void increaseGrade() {
     grade++;
   }
 
   public void displayGrade() {
     System.out.println(grade);
+  }
+
+  // naming convention for variables and methods are the same (camelCase)
+  public void displayAverage() {
+    System.out.println(average);
+  }
+
+  public void addTest(int mark) {
+    totalMarks += mark;
+    numMarks++;
+    calculateAverage();
+  }
+
+  private void calculateAverage() {
+    average = (double) totalMarks / numMarks;
   }
 
 }
