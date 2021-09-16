@@ -38,6 +38,10 @@ public class Student {
     System.out.println(name);
   }
 
+  /**
+   * A void method performs a task and returns NOTHING non-static means that each
+   * OBject gets its own version (ex. name, studentNumber, grade, )
+   */
   public void displayStudentNumber() {
     System.out.println(studentNumber);
   }
