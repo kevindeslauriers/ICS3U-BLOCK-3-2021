@@ -21,5 +21,13 @@ public class StudentExample {
     // ritchie.increaseGrade(); // throws java.lang.NullPointerException because
     // ritchie is null
 
+    yola.addTest(87);
+    yola.displayAverage();
+    yola.addTest(91);
+    yola.displayAverage();
+    yola.addTest(97);
+    yola.displayAverage();
+    yola.addTest(67);
+    yola.displayAverage();
   }
 }
