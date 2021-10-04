@@ -2,7 +2,7 @@ package week5;
 
 import java.util.Scanner;
 
-public class CrossCouuntry {
+public class CrossCountry {
    public static void main(String[] args) {
       Scanner in = new Scanner(System.in);
       processRunner(in);
@@ -11,6 +11,10 @@ public class CrossCouuntry {
       in.close();
    }
 
+   /**
+    * 
+    * @param in
+    */
    private static void processRunner(Scanner in) {
       String firstname, lastName;
       String mileOne, mileTwo, finishTime;
