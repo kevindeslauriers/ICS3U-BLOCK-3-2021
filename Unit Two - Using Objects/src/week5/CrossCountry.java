@@ -16,7 +16,7 @@ public class CrossCountry {
     * @param in
     */
    private static void processRunner(Scanner in) {
-      String firstname, lastName;
+      String firstName, lastName;
       String mileOne, mileTwo, finishTime;
       String splitTwo, splitThree;
 
