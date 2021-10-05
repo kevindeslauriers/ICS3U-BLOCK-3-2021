@@ -42,7 +42,7 @@ public class CrossCountry {
    }
 
    private static String convertToTime(double diffInSeconds) {
-      return null;
+      // return String.format("%d:%06.3f", minutes, seconds1);
 
       // create getMinutes and getSeconds functions to use
    }
