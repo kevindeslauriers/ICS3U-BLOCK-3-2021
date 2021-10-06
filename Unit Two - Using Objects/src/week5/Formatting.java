@@ -17,6 +17,6 @@ public class Formatting {
       // %06.3f -> pad the left side with 0 width of 6 and 3 decimal places
 
       // System.out.printf("blah%dtest %f", minutes, seconds);
-      System.out.printf("Mile One: %d:%06.3f", minutes, seconds1);
+      String temp = String.format("%d:%06.3f", minutes, seconds1);
    }
 }
