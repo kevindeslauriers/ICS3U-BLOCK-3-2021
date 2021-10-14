@@ -14,7 +14,7 @@ public class CoinGame {
     * Returns the number of coins (1, 2, or 3) that player 1 will spend.
     */
    public int getPlayer1Move() {
-
+      return 0;
    }
 
    /**
