@@ -4,8 +4,43 @@ public class NestedLoops {
    public static void main(String[] args) {
       // exampleOne();
       // framingSquares(1, 2, 3, 4);
-      wordFrame("CANADA");
+      // wordFrame("CANADA");
+      diamonds("BAYVIEWGLEN");
 
+   }
+
+   private static void diamonds(String str) {
+      for (int i = 0; i < str.length() - 1; i++) {
+         System.out.print(" ");
+      }
+      System.out.println(str.substring(0, 1));
+
+      for (int i = 1; i < str.length(); i++) {
+         for (int j = 0; j < str.length() - 1 - i; j++) {
+            System.out.print(" ");
+         }
+         System.out.print(str.substring(i, i + 1));
+         for (int j = 0; j < 2 * i - 1; j++) {
+            System.out.print(" ");
+         }
+         System.out.println(str.substring(i, i + 1));
+      }
+
+      for (int i = str.length() - 2; i > 0; i--) {
+         for (int j = 0; j < str.length() - 1 - i; j++) {
+            System.out.print(" ");
+         }
+         System.out.print(str.substring(i, i + 1));
+         for (int j = 0; j < 2 * i - 1; j++) {
+            System.out.print(" ");
+         }
+         System.out.println(str.substring(i, i + 1));
+      }
+
+      for (int i = 0; i < str.length() - 1; i++) {
+         System.out.print(" ");
+      }
+      System.out.println(str.substring(0, 1));
    }
 
    private static void wordFrame(String str) {
@@ -27,7 +62,6 @@ public class NestedLoops {
          System.out.print(letter);
       }
       System.out.println("*");
-
    }
 
    private static void framingSquares(int M, int N, int P, int Q) {
