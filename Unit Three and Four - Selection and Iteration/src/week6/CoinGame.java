@@ -41,7 +41,7 @@ public class CoinGame {
 
       int round = 1;
 
-      while (round < maxRounds && p1Coins > 3 && p2Coins > 3) {
+      while (round <= maxRounds && p1Coins >= 3 && p2Coins >= 3) {
          int p1Move = getPlayer1Move();
          int p2Move = getPlayer2Move(round);
 
@@ -54,7 +54,7 @@ public class CoinGame {
          else if (Math.abs(p1Move - p2Move) == 1)
             p2Coins++;
          else if (Math.abs(p1Move - p2Move) == 2)
-            p2Coins += 2;
+            p1Coins += 2;
       }
 
       if (p1Coins == p2Coins)

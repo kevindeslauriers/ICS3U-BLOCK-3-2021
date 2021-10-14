@@ -7,6 +7,18 @@ public class NestedLoops {
       // wordFrame("CANADA");
       diamonds("BAYVIEWGLEN");
 
+      String str = "CANADA";
+      String newString = "";
+
+      for (int i = str.length() - 1; i >= 0; i--) {
+
+         String letter = str.substring(i, i + 1);
+         if (!letter.equals("A"))
+            newString += letter;
+
+      }
+      System.out.print(newString);
+
    }
 
    private static void diamonds(String str) {
@@ -57,7 +69,7 @@ public class NestedLoops {
       }
 
       System.out.print("*");
-      for (int i = 5; i >= 0; i--) {
+      for (int i = str.length() - 1; i >= 0; i--) {
          String letter = str.substring(i, i + 1);
          System.out.print(letter);
       }
