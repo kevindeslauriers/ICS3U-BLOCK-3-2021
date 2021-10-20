@@ -13,16 +13,19 @@ public class ThreeCardPoker {
    private static final String JACK = "J";
    private static final String QUEEN = "Q";
    private static final String KING = "K";
+   private static final int PLAYER_WINS = 1;
+   private static final int DEALER_WINS = 2;
+   private static final int TIE = 3;
 
    public static void main(String[] args) {
       // 7H AC KD
 
       int wallet = 500;
       Scanner in = new Scanner(System.in);
-
+      int minBet = 50, maxBet = 100;
       boolean playAgain = true;
       while (playAgain) {
-         wallet = playPokerHand(in, wallet, 50, 100);
+         wallet = playPokerHand(in, wallet, minBet, maxBet);
          if (wallet >= 100)
             playAgain = playAgain(in);
          else {
@@ -54,13 +57,79 @@ public class ThreeCardPoker {
       int bet = getWager(in, 50, 100, wallet);
 
       String playerHand = "";
+      String dealerHand = "";
       playerHand = getCard(playerHand) + " ";
       playerHand += getCard(playerHand) + " ";
       playerHand += getCard(playerHand) + " ";
 
-      System.out.println(playerHand);
+      dealerHand = getCard(playerHand + dealerHand) + " ";
+      dealerHand += getCard(playerHand + dealerHand) + " ";
+      dealerHand += getCard(playerHand + dealerHand) + " ";
 
+      System.out.println(playerHand);
+      System.out.println("XX XX XX");
+
+      if (fold(in)) {
+         wallet -= bet;
+         return wallet;
+      }
+
+      bet += getWager(in, 50, 100, wallet);
       playerHand = discard(in, playerHand);
+      System.out.println("Player: " + playerHand);
+      System.out.println("Dealer: " + dealerHand);
+
+      if (getWinner(playerHand, dealerHand) == PLAYER_WINS) {
+         System.out.println("Player Wins!!!");
+         wallet += bet;
+      } else if (getWinner(playerHand, dealerHand) == DEALER_WINS) {
+         System.out.println("Dealer Wins!!!");
+         wallet -= bet;
+      } else {
+         System.out.println("Tie!!!");
+      }
+
+      return wallet;
+
+   }
+
+   private static int getWinner(String playerHand, String dealerHand) {
+      if (getHandValue(playerHand) > getHandValue(dealerHand))
+         return PLAYER_WINS;
+      else if (getHandValue(playerHand) < getHandValue(dealerHand))
+         return DEALER_WINS;
+      else if (getHighCard(playerHand) > getHighCard(dealerHand))
+         return PLAYER_WINS;
+      else if (getHighCard(playerHand) < getHighCard(dealerHand))
+         return DEALER_WINS;
+      else
+         return TIE;
+   }
+
+   private static int getHighCard(String playerHand) {
+      return 0;
+   }
+
+   private static int getHandValue(String playerHand) {
+      return 0;
+   }
+
+   private static boolean fold(Scanner in) {
+      boolean validInput = false;
+
+      while (!validInput) {
+         System.out.print("Fold or Discard ([F]old / [D]iscard): ");
+         String answer = in.nextLine().toUpperCase();
+         if (answer.equals("FOLD") || answer.equals("F"))
+            return true;
+         else if (answer.equals("DISCARD") || answer.equals("D")) {
+            return false;
+         } else {
+            System.out.println("Invalid Input: Fold or Discard only!");
+         }
+      }
+
+      return false;
    }
 
    private static String getCard(String usedCards) {
