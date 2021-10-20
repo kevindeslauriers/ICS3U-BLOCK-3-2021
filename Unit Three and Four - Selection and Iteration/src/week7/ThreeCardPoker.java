@@ -20,7 +20,38 @@ public class ThreeCardPoker {
       int wallet = 500;
       Scanner in = new Scanner(System.in);
 
-      // int bet = getWager(in, 50, 100, wallet);
+      boolean playAgain = true;
+      while (playAgain) {
+         wallet = playPokerHand(in, wallet, 50, 100);
+         if (wallet >= 100)
+            playAgain = playAgain(in);
+         else {
+            System.out.println("You don't have enough money to play again!");
+            playAgain = false;
+         }
+      }
+   }
+
+   private static boolean playAgain(Scanner in) {
+      boolean validInput = false;
+
+      while (!validInput) {
+         System.out.println("Do you want to play again ([Y]es / [N]o)");
+         String answer = in.nextLine().toUpperCase();
+         if (answer.equals("YES") || answer.equals("Y"))
+            return true;
+         else if (answer.equals("NO") || answer.equals("N")) {
+            return false;
+         } else {
+            System.out.println("Invalid Input: Yes or No only!");
+         }
+      }
+
+      return false;
+   }
+
+   private static int playPokerHand(Scanner in, int wallet, int i, int j) {
+      int bet = getWager(in, 50, 100, wallet);
 
       String playerHand = "";
       playerHand = getCard(playerHand) + " ";
@@ -30,7 +61,6 @@ public class ThreeCardPoker {
       System.out.println(playerHand);
 
       playerHand = discard(in, playerHand);
-
    }
 
    private static String getCard(String usedCards) {
