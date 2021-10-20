@@ -16,6 +16,12 @@ public class ThreeCardPoker {
    private static final int PLAYER_WINS = 1;
    private static final int DEALER_WINS = 2;
    private static final int TIE = 3;
+   private static final int STRAIGHT_FLUSH = 6;
+   private static final int FLUSH = 5;
+   private static final int STRAIGHT = 4;
+   private static final int THREE_OF_A_KIND = 3;
+   private static final int PAIR = 2;
+   private static final int HIGH_CARD = 1;
 
    public static void main(String[] args) {
       // 7H AC KD
@@ -106,12 +112,40 @@ public class ThreeCardPoker {
          return TIE;
    }
 
-   private static int getHighCard(String playerHand) {
+   private static int getHighCard(String cards) {
       return 0;
    }
 
-   private static int getHandValue(String playerHand) {
-      return 0;
+   private static int getHandValue(String cards) {
+      if (isFlush(cards) && isStraight(cards))
+         return STRAIGHT_FLUSH;
+      else if (isFlush(cards))
+         return FLUSH;
+      else if (isStraight(cards))
+         return STRAIGHT;
+      else if (isThreeOfAKind(cards))
+         return THREE_OF_A_KIND;
+      else if (isPair(cards))
+         return PAIR;
+      else
+         return HIGH_CARD;
+
+   }
+
+   private static boolean isPair(String cards) {
+      return false;
+   }
+
+   private static boolean isThreeOfAKind(String cards) {
+      return false;
+   }
+
+   private static boolean isStraight(String cards) {
+      return false;
+   }
+
+   private static boolean isFlush(String cards) {
+      return false;
    }
 
    private static boolean fold(Scanner in) {
