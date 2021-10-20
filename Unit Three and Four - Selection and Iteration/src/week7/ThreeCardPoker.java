@@ -104,19 +104,19 @@ public class ThreeCardPoker {
          playerHand += getCard(playerHand + temp) + " ";
          playerHand += getCard(playerHand + temp) + " ";
       } else {
-         String cardToReplace = getCardsToDiscard(in, numCardsToReplace, playerHand);
-         int space = cardToReplace.indexOf(" ");
+         String cardsToReplace = getCardsToDiscard(in, numCardsToReplace, playerHand);
+         int space = cardsToReplace.indexOf(" ");
          String card1 = "";
          if (space == -1)
-            card1 = cardToReplace;
+            card1 = cardsToReplace;
          else
-            card1 = cardToReplace.substring(0, space);
+            card1 = cardsToReplace.substring(0, space);
 
          String card = getCard(playerHand + temp);
          playerHand = playerHand.replace(card1, card);
          if (numCardsToReplace == 2) {
-            String card2 = cardToReplace.substring(space + 1);
-            card = getCard(playerHand + cardToReplace + temp);
+            String card2 = cardsToReplace.substring(space + 1);
+            card = getCard(playerHand + cardsToReplace + temp);
             playerHand = playerHand.replace(card2, card);
          }
       }
@@ -152,11 +152,13 @@ public class ThreeCardPoker {
          cards = in.nextLine().toUpperCase();
          if (countOccurences(cards, " ") != numCardsToReplace - 1) {
             System.out.println("You must choose " + numCardsToReplace + " cards.");
+         } else if ((numCardsToReplace == 1) && VALID_CARDS.indexOf(cards) < 0) {
+            System.out.println("Not a valid card: " + cards);
          } else if ((numCardsToReplace == 1) && (playerHand.indexOf(cards) < 0))
             System.out.println("You don't have a " + cards);
-         else if ((numCardsToReplace == 1) && (playerHand.indexOf(cards) >= 0))
+         else if ((numCardsToReplace == 1) && (playerHand.indexOf(cards) >= 0)) {
             validInput = true;
-         else if (numCardsToReplace == 2) {
+         } else if (numCardsToReplace == 2) {
             int space = cards.indexOf(" ");
 
             String card1 = cards.substring(0, space);
@@ -169,7 +171,7 @@ public class ThreeCardPoker {
                System.out.println("You don't have a " + card1);
             else if (playerHand.indexOf(card2) < 0)
                System.out.println("You don't have a " + card2);
-            else if (playerHand.equals(card2))
+            else if (card1.equals(card2))
                System.out.println("You cannot discard the same card.");
             else
                validInput = true;
