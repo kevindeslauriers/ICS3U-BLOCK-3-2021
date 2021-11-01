@@ -1,6 +1,8 @@
 package week8;
 
 public class Die {
+
+   public static final int DEFAULT_NUM_SIDES = 6;
    // attributes - defines the state of he Object
 
    // The attributes SHOULD be private
@@ -16,7 +18,7 @@ public class Die {
    // Pursose is to initialise the state (attributes)
    public Die() {
       /* constructor initialises the attributes */
-      numSides = 6;
+      numSides = DEFAULT_NUM_SIDES;
       roll();
    }
 
@@ -33,5 +35,20 @@ public class Die {
 
    public int getTopSide() {
       return topSide;
+   }
+
+   public boolean equals(Object obj) {
+      if (obj == this)
+         return true;
+
+      if (obj instanceof Die) {
+         return this.topSide == ((Die) obj).topSide;
+      } else {
+         return false;
+      }
+   }
+
+   public String toString() {
+      return "" + topSide;
    }
 }
