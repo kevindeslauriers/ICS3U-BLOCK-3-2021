@@ -18,11 +18,13 @@ public class Die {
    // Pursose is to initialise the state (attributes)
    public Die() {
       /* constructor initialises the attributes */
+
       numSides = DEFAULT_NUM_SIDES;
       roll();
    }
 
    public Die(int numSides) {
+
       /* The word this referes to the Object that we are working with. */
       // The object the called the method.
       this.numSides = numSides;
