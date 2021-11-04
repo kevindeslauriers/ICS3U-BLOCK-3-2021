@@ -12,7 +12,7 @@ public class Beverage {
    /* belongs to the class */
    public static void sell(int n) {
       numSold += n;
-      numOunces++;
+      // numOunces++;
    }
 
 }

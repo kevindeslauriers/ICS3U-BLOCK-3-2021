@@ -21,8 +21,8 @@ public class PolyDriver {
 
       Beverage coke = new Beverage(8);
       Beverage pepsi = new Beverage(10);
-      coke.sell(3);
-      pepsi.sell(2);
+      Beverage.sell(3);
+      Beverage.sell(2);
    }
 
 }
