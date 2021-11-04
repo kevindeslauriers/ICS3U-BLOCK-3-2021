@@ -18,7 +18,7 @@ public class HiddenWord {
          else if (hiddenWord.indexOf(a) >= 0)
             result += "+";
          else
-            result += ".";
+            result += "*";
       }
 
       return result;
