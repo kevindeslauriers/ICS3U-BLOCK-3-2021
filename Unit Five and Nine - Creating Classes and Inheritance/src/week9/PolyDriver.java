@@ -2,26 +2,27 @@ package week9;
 
 public class PolyDriver {
    public static void main(String[] args) {
-      Animal animal = new Animal();
-      animal.makeSound();
+      /*
+       * Not Ploymorphism - reference is the same type as the Object Animal animal =
+       * new Animal(); animal.makeSound(); Cat cat = new Cat(); cat.makeSound(); Dog
+       * dog = new Dog(); dog.makeSound(); dog.chaseTail();
+       */
+      /*
+       * Animal animal = new Cat(); animal.makeSound();
+       */
 
-      Dog dog = new Dog();
-      dog.makeSound();
+      // Animal animal = new Dog();
+      // animal.makeSound(); // dynamic binding
 
-      Cat cat = new Cat();
-      cat.makeSound();
+      // ((Dog) animal).chaseTail();
+      /*
+       * Gadget g = new Gadget(); Gadget.setStatus(4); Gadget g2 = new Gadget();
+       */
 
-      Animal animal1 = new Dog();
-      animal1.makeSound(); // dynamic binding
-      // animal1 = cat;
-      // animal1.makeSound();
-      animal1 = dog;
-
-      ((Dog) animal1).chaseTail();
-      dog.chaseTail();
-      animal1 = cat;
-      ((Dog) animal1).chaseTail();
-
+      Beverage coke = new Beverage(8);
+      Beverage pepsi = new Beverage(10);
+      coke.sell(3);
+      pepsi.sell(2);
    }
 
 }

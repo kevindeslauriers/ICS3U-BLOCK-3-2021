@@ -18,7 +18,6 @@ public class CombinedTable {
       }
 
       return (table1.getViewQuality() + table2.getViewQuality()) / 2;
-
    }
 
    public boolean canSeat(int seats) {

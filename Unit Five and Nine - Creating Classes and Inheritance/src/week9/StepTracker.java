@@ -2,15 +2,12 @@ package week9;
 
 public class StepTracker {
    private int minSteps;
-   private int numDays;
-   private int totalSteps;
-   private int activeDays;
+   private int numDays = 0;
+   private int totalSteps = 0;
+   private int activeDays = 0;
 
-   public StepTracker(int minSteps) {
-      this.minSteps = minSteps;
-      this.numDays = 0;
-      this.totalSteps = 0;
-      this.activeDays = 0;
+   public StepTracker(int m) {
+      minSteps = m;
    }
 
    public int activeDays() {
