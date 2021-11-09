@@ -18,11 +18,15 @@ public class PolyDriver {
       /*
        * Gadget g = new Gadget(); Gadget.setStatus(4); Gadget g2 = new Gadget();
        */
+      /*
+       * Beverage coke = new Beverage(8); Beverage pepsi = new Beverage(10);
+       * Beverage.sell(3); Beverage.sell(2);
+       */
+      HiddenWord hw = new HiddenWord("Hello");
+      HiddenWord hw2 = new HiddenWord("Hello!");
 
-      Beverage coke = new Beverage(8);
-      Beverage pepsi = new Beverage(10);
-      Beverage.sell(3);
-      Beverage.sell(2);
+      hw.getHint("Abcde");
+      hw2.getHint("Abcde");
    }
 
 }
