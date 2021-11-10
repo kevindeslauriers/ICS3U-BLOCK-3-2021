@@ -6,7 +6,7 @@ public class DoubleArraySequenceTest {
     * @param args
     * @throws IllegalAccessException
     */
-   public static void main(String[] args) throws IllegalAccessException {
+   public static void main(String[] args) {
       int score = 0;
       DoubleArraySequence d1 = new DoubleArraySequence();
       DoubleArraySequence d2 = new DoubleArraySequence(5);
