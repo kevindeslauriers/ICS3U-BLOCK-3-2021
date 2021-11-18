@@ -3,12 +3,12 @@ package week11;
 public class Horse {
    /** @return the horse's name */
    public String getName() {
-      /* Implementation not Shown */
+      return null;
    }
 
    /** @return the horse's weight */
    public int getWeight() {
-      /* Implementation not Shown */
+      return 0;
    }
    // There may be methods that are not shown.
 }
