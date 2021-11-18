@@ -86,7 +86,8 @@ public class DoubleArraySequence {
    // The new double array sequence is a copy of the DoubleArraySequence src.
    public DoubleArraySequence(DoubleArraySequence src) {
       this.manyItems = src.manyItems;
-
+      this.currentIndex = src.currentIndex;
+      // this.data = src.data;
    }
 
    /**
