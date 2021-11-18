@@ -13,7 +13,18 @@ public class Sound {
     * @return the number of values in this sound that this method changed
     */
    public int limitAmplitude(int limit) {
+      int numChanges = 0;
+      for (int i = 0; i < samples.length; i++) {
+         if (samples[i] > limit) {
+            samples[i] = limit;
+            numChanges++;
+         } else if (samples[i] < -limit) {
+            samples[i] = -limit;
+            numChanges++;
+         }
+      }
 
+      return numChanges;
    }
 
    /**
@@ -22,6 +33,18 @@ public class Sound {
     * Postcondition: the length of samples reflects the removal of starting silence
     */
    public void trimSilenceFromBeginning() {
+      int numSilent = 0;
+      while (samples[numSilent] == 0) {
+         numSilent++;
+      }
+
+      int[] temp = new int[samples.length - numSilent];
+
+      for (int i = 0; i < temp.length; i++) {
+         temp[i] = samples[i + numSilent];
+      }
+
+      samples = temp;
 
    }
 
