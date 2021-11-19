@@ -7,17 +7,6 @@ public class HorseBarn {
     */
    private Horse[] spaces;
 
-   public HorseBarn(int numHorses) {
-      spaces = new Horse[numHorses];
-      for (int i = 0; i < spaces.length; i++) {
-         spaces[i] = new Horse();
-      }
-
-      spaces[1] = null;
-      spaces[2] = null;
-      spaces[6] = null;
-   }
-
    /**
     * Returns the index of the space that contains the horse with the specified
     * name. Precondition: No two horses in the barn have the same name.
@@ -28,8 +17,8 @@ public class HorseBarn {
     */
    public int findHorseSpace(String name) {
       for (int i = 0; i < spaces.length; i++) {
-         Horse h = spaces[i];
-         if (h != null && h.getName().equals(name))
+
+         if (spaces[i] != null && spaces[i].getName().equals(name))
             return i;
       }
 
@@ -43,16 +32,10 @@ public class HorseBarn {
     * consolidation.
     */
    public void consolidate() {
-      int numHorses = 0;
 
-      for (int i = 1; i < spaces.length; i++) {
-         if (spaces[i] != null)
-            numHorses++;
-      }
+      Horse[] temp = new Horse[spaces.length];
 
-      Horse[] temp = new Horse[numHorses];
       int i = 0;
-
       for (Horse horse : spaces) {
          if (horse != null) {
             temp[i] = horse;

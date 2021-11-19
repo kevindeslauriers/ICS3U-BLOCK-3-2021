@@ -33,15 +33,18 @@ public class Sound {
     * Postcondition: the length of samples reflects the removal of starting silence
     */
    public void trimSilenceFromBeginning() {
+
+      // how many 0s at the front
       int numSilent = 0;
       while (samples[numSilent] == 0) {
          numSilent++;
       }
 
+      // create the smaller array
       int[] temp = new int[samples.length - numSilent];
 
       for (int i = 0; i < temp.length; i++) {
-         temp[i] = samples[i + numSilent];
+         temp[i] = samples[i + numSilent]; // offset samples by 4
       }
 
       samples = temp;
