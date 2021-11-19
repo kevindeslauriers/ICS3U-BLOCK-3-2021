@@ -2,12 +2,12 @@ package week11;
 
 public class APDriver {
    public static void main(String[] args) {
-      //TokenPass tp = new TokenPass(7);
+      // TokenPass tp = new TokenPass(7);
 
-     // Sound s = new Sound();
-     // s.trimSilenceFromBeginning();
+      // Sound s = new Sound();
+      // s.trimSilenceFromBeginning();
 
-     HorseBarn hb  = new Horse
+      SelfDivisor.isSelfDivisor(4362);
 
    }
 }

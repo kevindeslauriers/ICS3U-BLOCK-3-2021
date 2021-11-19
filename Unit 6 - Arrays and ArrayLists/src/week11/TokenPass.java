@@ -4,7 +4,8 @@ public class TokenPass {
    private int[] tokens;
    private int currentPlayer;
 
-   // Part (A)
+   // Part (A) - iterate through array and do something
+   // if constructor question - initailse the state including create the array
    public TokenPass(int playerCount) {
       currentPlayer = (int) (Math.random() * playerCount);
       tokens = new int[playerCount];
@@ -23,6 +24,7 @@ public class TokenPass {
 
       int nextPlayer = currentPlayer + 1;
 
+      // distribute coins each iteration is one coin
       while (tokensLeft > 0) {
          if (nextPlayer == tokens.length)
             nextPlayer = 0;
